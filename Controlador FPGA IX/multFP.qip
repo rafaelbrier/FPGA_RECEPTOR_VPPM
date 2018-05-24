@@ -1,0 +1,8 @@
+set_global_assignment -name IP_TOOL_NAME "ALTFP_MULT"
+set_global_assignment -name IP_TOOL_VERSION "13.0"
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "multFP.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "multFP.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "multFP_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "multFP_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "multFP.inc"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "multFP.cmp"]
