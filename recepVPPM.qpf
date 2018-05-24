@@ -19,13 +19,14 @@
 #
 # Quartus Prime
 # Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-# Date created = 17:26:23  November 22, 2017
+# Date created = 23:26:40  May 23, 2018
 #
 # -------------------------------------------------------------------------- #
 
 QUARTUS_VERSION = "17.0"
-DATE = "17:26:23  November 22, 2017"
+DATE = "23:26:40  May 23, 2018"
 
 # Revisions
 
+PROJECT_REVISION = "recepVPPM"
 PROJECT_REVISION = "TrabFinal"
