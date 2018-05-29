@@ -59,13 +59,17 @@ set_global_assignment -name EDA_TEST_BENCH_NAME Main_tb -section_id eda_simulati
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Main_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1 ps" -section_id Main_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Main_tb -section_id Main_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE Main_tb.v -section_id Main_tb
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE Main_tb.v -section_id Main_tb
+set_global_assignment -name VERILOG_FILE Median.v
+set_global_assignment -name VERILOG_FILE astavel.v
 set_global_assignment -name VERILOG_FILE PLL32.v
 set_global_assignment -name VERILOG_FILE Main_tb.v
 set_global_assignment -name VERILOG_FILE Mainn.v
 set_global_assignment -name VERILOG_FILE Input.v
 set_global_assignment -name VERILOG_FILE Counter.v
+set_global_assignment -name VERILOG_FILE Demodulador.v
+set_global_assignment -name VERILOG_FILE freqDetect.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
