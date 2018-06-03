@@ -10,7 +10,6 @@
 	-Devo adicionar reset.
 */
 
-
 module Mainn
 
 #(
@@ -24,7 +23,7 @@ module Mainn
 
 parameter clockFreq = 32'd200000000;
 
-wire [NBITS:0] inCount;
+wire [NBITS-1:0] inCount;
 wire inputRead;
 wire clk_50, iCLK, iCLK_n, clk_200; 
 wire clk_defFreq;
@@ -33,6 +32,8 @@ wire [31:0] freqCalculada1, freqCalculada2, freqCalculada3, freqCalculada4;
 wire [31:0] vppmFrequencyDetected;
 reg [31:0] freqParam;
 reg freqAvailable;
+
+wire reset;
 
 initial begin
 freqAvailable = 1'b0;
@@ -56,12 +57,11 @@ Input #(NBITS)Input(inCount, inputRead);
 //-------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------
 
-
 //Detectar Frequência--------------------------------------------------------------------------
-freqDetect #(3'd1)freqDetector1(clk_200, inputRead, freqCalculada1);
-freqDetect #(3'd2)freqDetector2(clk_200, inputRead, freqCalculada2);
-freqDetect #(3'd3)freqDetector3(clk_200, inputRead, freqCalculada3);
-freqDetect #(3'd4)freqDetector4(clk_200, inputRead, freqCalculada4);
+freqDetect #(3'd1)freqDetector1(clk_200, 1'b0, inputRead, freqCalculada1);
+freqDetect #(3'd2)freqDetector2(clk_200, 1'b0, inputRead, freqCalculada2);
+freqDetect #(3'd3)freqDetector3(clk_200, 1'b0, inputRead, freqCalculada3);
+freqDetect #(3'd4)freqDetector4(clk_200, 1'b0, inputRead, freqCalculada4);
 //Calcular média (máximo 4 vezes, para menores colocar 0 no freqCalculada respectivo)
 Median     #(3'd4)calcMedia(clk_200, freqCalculada1, freqCalculada2, freqCalculada3,
 																							freqCalculada4,

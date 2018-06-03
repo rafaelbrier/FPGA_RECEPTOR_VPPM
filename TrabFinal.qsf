@@ -19,14 +19,27 @@
 #
 # Quartus Prime
 # Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-# Date created = 21:52:54  June 02, 2018
+# Date created = 17:29:36  May 31, 2018
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		TrabFinal_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
 #
 # -------------------------------------------------------------------------- #
 
-QUARTUS_VERSION = "17.0"
-DATE = "21:52:54  June 02, 2018"
 
-# Revisions
-
-PROJECT_REVISION = "recepVPPM"
-PROJECT_REVISION = "TrabFinal"
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE AUTO
+set_global_assignment -name TOP_LEVEL_ENTITY TrabFinal
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:29:36  MAY 31, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"

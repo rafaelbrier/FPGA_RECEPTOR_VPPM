@@ -4,7 +4,7 @@ module Counter
 )
 (
 	input clk,
-	output reg [NBITS:0]countValue
+	output reg [NBITS-1:0]countValue
 );
 
 
