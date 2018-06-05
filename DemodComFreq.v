@@ -7,12 +7,12 @@ module DemodComFreq
 	input VppmIn,
 	input freqAvailable,
 	input [31:0] signalFrequency,
+	output reg readPoint,
 	output reg dataRead	
 );
 
 reg initFlag;
 reg [24:0] cont;
-reg readPoint;
 reg protocolBegin;
 reg [3:0] protocolCont;
 
@@ -35,7 +35,7 @@ protocolBegin <= 1'b1;
 end
 
 //Trigger
-always @ (*) begin
+always @ (posedge clk) begin
 if(protocolBegin && freqAvailable )
 initFlag <= 1'b1;
 end
@@ -47,8 +47,9 @@ if(cont == 25'd0) begin
 dataRead <= ~VppmIn;
 readPoint <= 1'b1;
 end
-else
+else begin
 readPoint <= 1'b0;
+end
 end
 end
 

@@ -33,10 +33,14 @@ wire [31:0] vppmFrequencyDetected;
 reg [31:0] freqParam;
 reg freqAvailable;
 
-wire reset;
+wire saveDataFlag;
+wire [0:0]savedData;
+reg [NBITS-1:0]addr;
+
 
 initial begin
 freqAvailable = 1'b0;
+addr = 12'd0;
 end
 
 
@@ -80,9 +84,25 @@ end
 
 //Demodulador (Parameter = 200MHz/SinalFreq - 2)(SinalFreq = AstavelFreq/2)--------------------------------------
 //Demodulador DemodVPPM(clk_200, inputRead, 32'd38, dataRead);
-DemodComFreq #(4'd7)DemodVPPMComFreq(clk_200, inputRead, freqAvailable, freqParam, dataRead);
+DemodComFreq #(4'd7)DemodVPPMComFreq(clk_200, inputRead, freqAvailable, freqParam, saveDataFlag, dataRead);
 //---------------------------------------------------------------------------------------------
 
+//Salvar Dados na RAM ------------------------------------------------------------------
+reg write;
+always @ (posedge saveDataFlag) begin
+if(addr<=2**NBITS) begin
+addr<=addr+1'b1;
+write <= 1'b1;
+end
+else begin
+addr <= 1'b0;
+write <= 1'b0;
+end
+end
+
+
+ram #(NBITS, 1'b1)ReadData(clk_200, write, addr, dataRead, savedData);
+//----------------------------------------------------------------------------------------
 endmodule
 
 

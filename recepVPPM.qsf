@@ -63,6 +63,7 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE Main_tb.v -section_id Main_tb
+set_global_assignment -name VERILOG_FILE ram.v
 set_global_assignment -name VERILOG_FILE Median.v
 set_global_assignment -name VERILOG_FILE astavel.v
 set_global_assignment -name VERILOG_FILE PLL32.v
